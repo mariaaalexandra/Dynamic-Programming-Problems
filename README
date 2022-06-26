@@ -1,0 +1,43 @@
+DRUGA MARIA-ALEXANDRA
+323CB
+
+HOMEWORK 1 PA
+
+WALSH:
+->FIND FUNCTION => divides the matrix in four parts recursively using DIVIDE ET IMPERA
+                => search for the element in every submatrix using the auxiliary function
+                exists
+                => firstly I start with the element p = 0, since is the first element in the matrix
+                => afterwards I change the element only if it is in the fourth submatrix
+                => the element p is return when the dimension D is equal to 1, meaning the element has
+                been found
+Time Complexity: T=O(n)
+Auxiliary Space: S=O(n)
+
+STATISTICS:
+->IN MAIN FUNCTION => I read every single word from the file and I initialise every element of the matrix
+                      with the negativ length of the word plus the double apperance of every letter in the 
+                      word. The matrix has the following construction: lines = all letters of the alphabet
+                      and columns = the number of words.
+                    => For finding the result I traverse the matrix for each line, so for every letter and
+                       I sort every line descending. Afterwards, I calculate the maximum count of words by 
+                       adding every element of the line to sum until it reaches 0 or the index j is bigger 
+                       or equal to nr_words.
+Time Complexity: O(L×n×logn)), L = length of the Alphabet
+
+
+PRINEL:
+->FINDOPPERATIONSFORMAX FUNCTION => In this function is created the dp array for the maximum number of the
+                                    array. Initially all the elements are equal to INT_MAX. Afterwards are
+                                    searched the divisors for all the numbers from the interval, followed by
+                                    the minimum of dp[i + j], dp[i] + 1 or dp[i + i / j], dp[i] + 1, depending
+                                    on the satisfied condition.
+
+->FINDPOINTS FUNCTION => In this function it is created a dp matrix with n + 1 lines and k + 1 columns for 
+                        finding the maximum number of points without reaching more than k opperations. In dp
+                        matrix are kept all the possible weights from 1 to W as the columns and weights as the
+                        row. We can put the element "wi" into the given column or not. If the weight is filled,
+                        then dp[i][j] is equal to dp[i-1][j], else it will be equal to the value of "wi" + value
+                        of the column with weight "j - wi" from the previous row.
+Time Complexity: O((M – N)*√(M – N)) + O(N*K)
+Auxiliary Space: O(M) + O(N*K)
